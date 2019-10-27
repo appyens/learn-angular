@@ -1,0 +1,173 @@
+<div>
+  <h1>Test component</h1>
+  <h1 class="text-success">Hello Anurag</h1>
+  <h1>Hello {{name}}</h1>
+  <h1>Length of the name: {{name.length}}</h1>
+  <h1>This is from method: {{greetUser()}}</h1>
+  <h1>Site url is {{siteUrl}}</h1>
+
+</div>
+<hr>
+<div>
+<!--  Interpolation and property binding-->
+  <input type="text" value="Anurag">
+  <!--  Property binding-->
+  <input type="text" value="Gundappa" [id]="myId">
+  <!--  using interpolation-->
+  <input type="text" value="Leo" id="{{myId}}">
+  <!--  interpolation limitations on boolean-->
+  <input disabled type="text" value="Leo" id="{{myId}}">
+  <!--  limitations over come with property binding-->
+  <input [disabled]="false" type="text" value="Leo" id="{{myId}}">
+  <input [disabled]="isDisabled" type="text" value="Leo" id="{{myId}}">
+  <!--  Another syntax for property binding-->
+  <input bind-disabled="isDisabled" type="text" value="Leo" id="{{myId}}">
+</div>
+<hr>
+<div>
+  <!--  class binding-->
+  <h1 class="text-danger">This is class binding</h1>
+  <h1 [class]="successClass">This is class binding with property</h1>
+  <!--  class binding based on property boolean condition-->
+  <h1 [class.text-danger]="hasError">This is class binding with property</h1>
+
+  <!--  binding multiple class based on property using ngClass directive-->
+  <h2 [ngClass]="messageClasses">This is multiple class binding test</h2>
+
+</div>
+<hr>
+<div>
+  <!--  Style binding-->
+  <h1 [style.color]="'orange'">This is example of style binding</h1>
+  <!--  style binding based on condition-->
+  <h1 [style.color]="hasError ? 'red' : 'green'">style binding based on condition</h1>
+  <!--  style binding using component class property-->
+  <h1 [style.color]="highlightColor">style binding with component class property</h1>
+  <!--  style binding multiple css property-->
+  <h1 [ngStyle]="titleStyles">style binding with multiple css property</h1>
+</div>
+<hr>
+<div>
+  <!--  Event binding-->
+  <button (click)="onClick($event)" type="button">Greet</button>
+  {{msg}}
+  <button (click)="onClick($event)" type="button">Greet</button>
+  {{eventMsg}}
+  <button (click)="name='Welcome Anurag'" type="button">Greet</button>
+</div>
+<hr>
+<div>
+  <h1>Template reference variable</h1>
+  <!--  Template reference variable-->
+  <input #myRef type="text">
+  <button type="button" (click)="logMsg(myRef.value)">show</button>
+  <!--  another example-->
+  <input #myRef type="text">
+  <button type="button" (click)="logMsg(myRef)">show</button>
+</div>
+<hr>
+<div>
+  <!--  Two way binding-->
+  <h1>Two way binding</h1>
+  <input [(ngModel)]="two" type="text">
+  <p>{{two}}</p>
+</div>
+<hr>
+<div>
+<!--  ngIf else-->
+  <h1 *ngIf="displaySwitch; else elsePart">This is ngIf</h1>
+  <ng-template #elsePart>
+    <h1>This is ngElse block</h1>
+  </ng-template>
+
+<!--  Another syntax-->
+  <div *ngIf="displaySwitch; then thenBlock; else elseBlock"></div>
+  <ng-template #thenBlock>
+  <h2>This is then block</h2>
+  </ng-template>
+  <ng-template #elseBlock>
+  <h2>This is else block</h2>
+  </ng-template>
+</div>
+<hr>
+<div>
+<!--  ngSwitch example-->
+  <h1>ngSwitch</h1>
+  <div [ngSwitch]="ngSwitchTest">
+    <div *ngSwitchCase="'red'">You picked red color</div>
+    <div *ngSwitchCase="'blue'">You picked blue color</div>
+    <div *ngSwitchCase="'green'">You picked green color</div>
+    <div *ngSwitchDefault>Try Again</div>
+  </div>
+</div>
+<hr>
+<div>
+<!--  ngFor Example-->
+  <div *ngFor="let col of colors">
+    <h1>ngFor</h1>
+    <h2>{{col}}</h2>
+  </div>
+  <hr>
+<!--  optionally using index-->
+  <h1>ngFor using index</h1>
+  <div *ngFor="let col of colors; index as i">
+    <h4>{{i}} {{col}}</h4>
+  </div>
+  <hr>
+  <!--  optionally more keywords-->
+  <h1>ngFor using first</h1>
+  <div *ngFor="let col of colors; first as f">
+    <h4>{{f}} {{col}}</h4>
+  </div>
+  <hr>
+  <h1>ngFor using last</h1>
+  <div *ngFor="let col of colors; last as l">
+    <h4>{{l}} {{col}}</h4>
+  </div>
+  <hr>
+  <h1>ngFor using odd</h1>
+  <div *ngFor="let col of colors; odd as o">
+    <h4>{{o}} {{col}}</h4>
+  </div>
+  <hr>
+  <h1>ngFor using even</h1>
+  <div *ngFor="let col of colors; even as e">
+    <h4>{{e}} {{col}}</h4>
+  </div>
+  <hr>
+  <div>
+    <h1>Component Interaction</h1>
+    <h2>From parent to child</h2>
+    <p>{{parentData}}</p>
+    <p>{{incoming}}</p>
+    <h2>From child to parent</h2>
+    <button (click)="fireEvent($event)">Send event</button>
+  </div>
+  <hr>
+  <div>
+    <h1>Pipes</h1>
+    <h2>{{pipTest | lowercase}}</h2>
+    <h2>{{pipTest | uppercase}}</h2>
+    <h2>{{pipTest | titlecase}}</h2>
+    <h2>{{pipTest | slice:3:8}}</h2>
+    <h2>{{pipTest | json}}</h2>
+    <h2>{{5.678 | number:'1.2-3'}}</h2>
+    <h2>{{5.678 | number:'3.4-5'}}</h2>
+    <h2>{{5.678 | number:'3.1-2'}}</h2>
+    <h2>{{5.678 | percent}}</h2>
+    <h2>{{5.678 | currency}}</h2>
+    <h2>{{5.678 | currency:'INR'}}</h2>
+    <h2>{{5.678 | currency:'INR': 'code'}}</h2>
+    <h2>{{date | date}}</h2>
+    <h2>{{date | date:'short'}}</h2>
+    <h2>{{date | date:'shortDate'}}</h2>
+    <h2>{{date | date:'shortTime'}}</h2>
+  </div>
+  <hr>
+  <div>
+    <h1>Using a service</h1>
+    <ul *ngFor="let emp of employee">
+      <li>{{emp.name}}</li>
+    </ul>
+  </div>
+</div>

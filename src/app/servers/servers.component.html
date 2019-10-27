@@ -1,0 +1,27 @@
+<!-- components can be nested-->
+<!--components can be nested multiple times-->
+<app-server></app-server>
+<!--<app-server></app-server>-->
+<hr>
+<p>Servers component</p>
+<div>
+  <h3>Property binding</h3>
+  <!--property binding-->
+  <p><input type="button" class="btn btn-primary" [disabled] = 'isDisabled' value="Add server" (click)="onCreateServer()"></p>
+</div>
+<hr>
+<div>
+  <h3>Event binding</h3>
+  <!--event binding-->
+  <p>{{ serverCreationStatus }}</p>
+  <!--<label for="">Server name</label>-->
+  <!--<input type="text" class="form-control" (input)="onUpdateServerName($event)">-->
+  <!--<p>{{ serverName }}</p>-->
+</div>
+<hr>
+<div>
+  <h3>Two way binding</h3>
+  <!--two way binding-->
+  <input type="text" class="form-control" [(ngModel)]="serverName">
+  <p>{{ serverName }}</p>
+</div>
