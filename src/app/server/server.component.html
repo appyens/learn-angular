@@ -1,2 +1,3 @@
 <p>Server component</p>
-<p>{{ 'Server' }} with id {{ serverId }} is {{ serverStatus }} </p>
+<p [ngStyle]="{backgroundColor: getColor()}" [ngClass]="{online: serverStatus === 'online'}" *ngFor="let server of serversList">{{ server }} with id {{ serverId }} is {{ serverStatus }} </p>
+

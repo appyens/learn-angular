@@ -25,3 +25,8 @@
   <input type="text" class="form-control" [(ngModel)]="serverName">
   <p>{{ serverName }}</p>
 </div>
+<div>
+  <h3>Directives</h3>
+  <p *ngIf="serverCreated; else noServer">{{ serverCreationStatus }} {{ serverName }}</p>
+  <ng-template #noServer>{{ serverCreationStatus }}</ng-template>
+</div>

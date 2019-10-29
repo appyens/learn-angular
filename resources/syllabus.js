@@ -33,14 +33,20 @@
           - it cant be used with boolean
 
  8. Class binding
+          - use [ngClass]
+          - it takes JS object in which you need to write css class
           - use [class], [ngClass]  directives
           - regular class attributes becomes dummy in presence of class binding attribute
           - can use with css class
           - We can use ngClass directive to bind multiple classes
+          - We can hard code the value of css class or can provide on condition
 
  9. Style binding
+          - use [ngStyle]
+          - it takes JS object in which you need to write css property
           - use [style.css-attribute]
           - You can also use component class property during binding
+          - We can hard code the value of css class or can provide on condition
 
  10. Event binding
           - All of the above bindings are from components to template
@@ -61,9 +67,11 @@
           - Angular provides [(ngModel)] directives for this purpose.
           - Remember the syntax, it is used for two way binding property and class binding at the same time.
 
- 13. Structural directives:
+ 13. Directives:
+          1. Structural directives
           - *ngIf [ngIf]
                 - Used for adding or removing html elements
+          2. Attribute directives
           - ngSwitch:
                 - This is like switch statement
                  - *ngSwitch [ngSwitch]

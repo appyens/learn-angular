@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {EmployeeService} from '../employee.service';
+// import {EmployeeService} from '../employee.service';
 import {Observable} from 'rxjs';
 
 @Component({
@@ -58,7 +58,7 @@ export class TestComponent implements OnInit {
   public employee = [];
   public post: [];
 
-  constructor(private empService: EmployeeService) { }
+  // constructor(private empService: EmployeeService) { }
 
   // This is component lifecycle hook, it gets called once the component has been initialised
   // this hook is useful for fetching service data
@@ -70,7 +70,7 @@ export class TestComponent implements OnInit {
   // 3rd step to subscribe
   // 4th step to assign data to local variable
   ngOnInit() {
-    this.empService.getEmployeesOverHttp().subscribe(data => this.employee = data);
+    // this.empService.getEmployeesOverHttp().subscribe(data => this.employee = data);
   }
 
   greetUser() {
