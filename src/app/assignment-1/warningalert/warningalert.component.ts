@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-warningalert',
-  template: `<input type="button" value="Click me" (click)="showAlert()" class="btn btn-danger"><hr><p>This is warning message</p>`,
+  template: `<input type="button" value="Click me" (click)="showAlert()" class="btn btn-danger"><p class="m-3">This is warning message</p>`,
   styles: [
     `
     p {

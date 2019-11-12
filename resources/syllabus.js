@@ -60,6 +60,9 @@
           - These are the reference to the html elements which is later used by components class to modify them
           - syntax is:
           - #renferenceName
+          - These are only for to use in templates and not in typescript code
+          - But you can access them in component class by passing these variables to property function
+          - These are of type HTMLElements
 
  12. Two way binding:
           - In this when view gets updated comp class attributes are get updated
@@ -98,9 +101,18 @@
                 Create EventEmitter() object with Output() decorator
                 Create event handler method in child comp class in which call emit attribute of emitter object
                 bind this method to event in child comp html
-                Receive the data from child by using binding emitter object to html
+                Receive the data from child by binding emitter object to html
                 Add the parent comp class property to handle value coming from child
                 bind this property to html for rendering
+
+ @  Style/View encapsulation:
+          angular emulates shadow DOM to style the html
+          generally css attributes does not care about where they defined.
+          Attributes are applied to whole document but angular restrict this behaviour to component
+          CSS attributes get applied in which components they defined
+          You can disable this behaviour and change it to 3 predefined modes 1- None, 2- Native, 3- Emulated
+          You need to add encapsulation property to component attribute having the one of the values from above
+
 
  15. Pipes
         - {{ value | pipe }}
