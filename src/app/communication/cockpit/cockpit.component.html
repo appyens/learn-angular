@@ -6,7 +6,9 @@
 <!--    Template reference variable demo-->
     <input type="text" class="form-control" #serverNameInput>
     <label>Server Content</label>
-    <input type="text" class="form-control" [(ngModel)]="newServerContent">
+<!--    <input type="text" class="form-control" [(ngModel)]="newServerContent">-->
+<!--    for @viewChild demo-->
+    <input type="text" class="form-control" #serverContentInput>
     <br>
     <button
       class="btn btn-primary m-2"
@@ -14,7 +16,7 @@
     </button>
     <button
       class="btn btn-primary"
-      (click)="onAddBlueprint()">Add Server Blueprint
+      (click)="onAddBlueprint(serverNameInput)">Add Server Blueprint
     </button>
   </div>
 </div>

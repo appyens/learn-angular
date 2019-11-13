@@ -10,109 +10,118 @@
  4. Components
           - ng generate component (ng g c compName)
 
- 5. Interpolation
-          - {{value}}
-          - global JS variables are not accessible in html
-          - You need to write class attribute
-          - Any class property which is of type string can be used in interpolation
-          - Numbers can also be used in interpolation
-          - Any method which return string can be used.
+@@@@ Basics
 
- 6. Property Vs Value
-          - Attribute cannot change once defined
-          - Value do change
-          - Attribute are defined by the html
-          - Values are defined by the DOM
-          - Attribute initializes DOM properties and they are done
+           5. Interpolation
+                   - {{value}}
+                   - global JS variables are not accessible in html
+                   - You need to write class attribute
+                   - Any class property which is of type string can be used in interpolation
+                   - Numbers can also be used in interpolation
+                   - Any method which return string can be used.
 
- 7. Property binding
-          - [attribute]
-          - we need to use square bracket to bind the property
-          - We can also use interpolation but there are limitations to it.
-          - Interpolation have certain limitations interpolation only works for string values
-          - it cant be used with boolean
+           6. Property Vs Value
+                   - Attribute cannot change once defined
+                   - Value do change
+                   - Attribute are defined by the html
+                   - Values are defined by the DOM
+                   - Attribute initializes DOM properties and they are done
 
- 8. Class binding
-          - use [ngClass]
-          - it takes JS object in which you need to write css class
-          - use [class], [ngClass]  directives
-          - regular class attributes becomes dummy in presence of class binding attribute
-          - can use with css class
-          - We can use ngClass directive to bind multiple classes
-          - We can hard code the value of css class or can provide on condition
+           7. Property binding
+                   - [attribute]
+                   - we need to use square bracket to bind the property
+                   - We can also use interpolation but there are limitations to it.
+                   - Interpolation have certain limitations interpolation only works for string values
+                   - it cant be used with boolean
 
- 9. Style binding
-          - use [ngStyle]
-          - it takes JS object in which you need to write css property
-          - use [style.css-attribute]
-          - You can also use component class property during binding
-          - We can hard code the value of css class or can provide on condition
+           8. Class binding
+                   - use [ngClass]
+                   - it takes JS object in which you need to write css class
+                   - use [class], [ngClass]  directives
+                   - regular class attributes becomes dummy in presence of class binding attribute
+                   - can use with css class
+                   - We can use ngClass directive to bind multiple classes
+                   - We can hard code the value of css class or can provide on condition
 
- 10. Event binding
-          - All of the above bindings are from components to template
-          - But events are coming from templates and we need to listen it from components
-          - Syntax is:
-          - in parenthesis add the event and assign it to one of the property in component class
-          - <button (click)="onClick"></button>
-          - where onclick is the property from component class
+           9. Style binding
+                   - use [ngStyle]
+                   - it takes JS object in which you need to write css property
+                   - use [style.css-attribute]
+                   - You can also use component class property during binding
+                   - We can hard code the value of css class or can provide on condition
 
-  11. Template reference variable
-          - These are the reference to the html elements which is later used by components class to modify them
-          - syntax is:
-          - #renferenceName
-          - These are only for to use in templates and not in typescript code
-          - But you can access them in component class by passing these variables to property function
-          - These are of type HTMLElements
+           10. Event binding
+                   - All of the above bindings are from components to template
+                   - But events are coming from templates and we need to listen it from components
+                   - Syntax is:
+                   - in parenthesis add the event and assign it to one of the property in component class
+                   - <button (click)="onClick"></button>
+                   - where onclick is the property from component class
 
- 12. Two way binding:
-          - In this when view gets updated comp class attributes are get updated
-          - And in reverse class binds data to the view. this is known as two way binding.
-          - Angular provides [(ngModel)] directives for this purpose.
-          - Remember the syntax, it is used for two way binding property and class binding at the same time.
+           12. Two way binding:
+                   - In this when view gets updated comp class attributes are get updated
+                   - And in reverse class binds data to the view. this is known as two way binding.
+                   - Angular provides [(ngModel)] directives for this purpose.
+                   - Remember the syntax, it is used for two way binding property and class binding at the same time.
+
+
+@@@@ Components and data binding
+
+           14. Component Interaction
+           - This is two way process
+           - For parent to child
+                   - Add property to parent comp class
+                   - Add this to child comp custom html tag in app comp
+                   - Receive the data with @Input() decorator in child comp class
+                   - render the data in child html with property binding
+           - Child to parent
+                   - The only way is by events
+                   - Create EventEmitter() object with Output() decorator
+                   - Create event handler method in child comp class in which call emit attribute of emitter object
+                   - bind this method to event in child comp html
+                   - Receive the data from child by binding emitter object to html
+                   - Add the parent comp class property to handle value coming from child
+                   - bind this property to html for rendering
+
+           @  Style/View encapsulation:
+                   - angular emulates shadow DOM to style the html
+                   - generally css attributes does not care about where they defined.
+                   - Attributes are applied to whole document but angular restrict this behaviour to component
+                   - CSS attributes get applied in which components they defined
+                   - You can disable this behaviour and change it to 3 predefined modes 1- None, 2- Native, 3- Emulated
+                   - You need to add encapsulation property to component attribute having the one of the values from above
+
+           11. Template reference variable
+                   - These are the reference to the html elements which is later used by components class to modify them
+                   - syntax is:
+                   - #renferenceName
+                   - These are only for to use in templates and not in typescript code
+                   - But you can access them in component class by passing these variables to property function
+                   - These are of type HTMLElements
+
+           @ @ViewChild()
+
+           @ ng-content
+
 
  13. Directives:
-          1. Structural directives
-          - *ngIf [ngIf]
-                - Used for adding or removing html elements
-          2. Attribute directives
-          - ngSwitch:
-                - This is like switch statement
-                 - *ngSwitch [ngSwitch]
-                 - *ngSwitchCase
-                 - *ngSwitchDefault
-          - ngFor
-                - It renders list of elements
-                - *ngFor
-                - some of the keywords are:
-                     first as f
-                     last as l
-                     odd as o
-                     even as e
-
- 14. Component Interaction
-          - This is two way process
-          - For parent to child
-                - Add property to parent comp class
-                - Add this to child comp custom html tag in app comp
-                - Receive the data with @Input() decorator in child comp class
-                - render the data in child html with property binding
-          - Child to parent
-                The only way is by events
-                Create EventEmitter() object with Output() decorator
-                Create event handler method in child comp class in which call emit attribute of emitter object
-                bind this method to event in child comp html
-                Receive the data from child by binding emitter object to html
-                Add the parent comp class property to handle value coming from child
-                bind this property to html for rendering
-
- @  Style/View encapsulation:
-          angular emulates shadow DOM to style the html
-          generally css attributes does not care about where they defined.
-          Attributes are applied to whole document but angular restrict this behaviour to component
-          CSS attributes get applied in which components they defined
-          You can disable this behaviour and change it to 3 predefined modes 1- None, 2- Native, 3- Emulated
-          You need to add encapsulation property to component attribute having the one of the values from above
-
+           1. Structural directives
+                   - *ngIf [ngIf]
+                   - Used for adding or removing html elements
+           2. Attribute directives
+                   - ngSwitch:
+                           - This is like switch statement
+                           - *ngSwitch [ngSwitch]
+                           - *ngSwitchCase
+                           - *ngSwitchDefault
+                   - ngFor
+                           - It renders list of elements
+                           - *ngFor
+                           - some of the keywords are:
+                           first as f
+                           last as l
+                           odd as o
+                           even as e
 
  15. Pipes
         - {{ value | pipe }}
