@@ -103,6 +103,8 @@
 
            @ ng-content
 
+ @@@@ Lifecycle hooks:
+            - these are the interface which gets implemented throughout component execution
 
  13. Directives:
            1. Structural directives
