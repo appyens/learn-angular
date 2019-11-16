@@ -18,7 +18,7 @@
 
 <!--        for ng-content demo-->
 <!--        you can write component html in selector tag but you need to put ng-content in original template-->
-        <p>
+        <p #contentParagraph>
           <strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content }}</strong>
           <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
         </p>
