@@ -17,6 +17,10 @@ import { GameControlComponent } from './assignment4/game-control/game-control.co
 import { OddComponent } from './assignment4/odd/odd.component';
 import { EvenComponent } from './assignment4/even/even.component';
 import { Assignment4Component } from './assignment4/assignment4.component';
+import { DirectiveDemoComponent } from './directive-demo/directive-demo.component';
+import {BasicHighlightDirective} from './directive-demo/basic-highlight/basic-highlight.directive';
+import { BetterHighlightDirective } from './directive-demo/better-highlight/better-highlight.directive';
+import { UnlessDirective } from './directive-demo/unless.directive';
 
 @NgModule({
   declarations: [
@@ -36,6 +40,10 @@ import { Assignment4Component } from './assignment4/assignment4.component';
     OddComponent,
     EvenComponent,
     Assignment4Component,
+    DirectiveDemoComponent,
+    BasicHighlightDirective,
+    BetterHighlightDirective,
+    UnlessDirective,
 
   ],
   imports: [

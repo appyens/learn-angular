@@ -103,27 +103,51 @@
 
            @ ng-content
 
+           @ContentChild()
+
  @@@@ Lifecycle hooks:
             - these are the interface which gets implemented throughout component execution
 
+             ngOnInit() {}
+             ngOnChanges(changes: SimpleChanges) {}
+             ngDoCheck() {}
+             ngAfterContentInit(): void {}
+             ngAfterContentChecked(): void {}
+             ngAfterViewInit(): void {}
+             ngAfterViewChecked(): void {}
+             ngOnDestroy(): void {}
+
+
  13. Directives:
            1. Structural directives
-                   - *ngIf [ngIf]
-                   - Used for adding or removing html elements
-           2. Attribute directives
                    - ngSwitch:
-                           - This is like switch statement
-                           - *ngSwitch [ngSwitch]
-                           - *ngSwitchCase
-                           - *ngSwitchDefault
+                         - This is like switch statement
+                         - *ngSwitch [ngSwitch]
+                         - *ngSwitchCase
+                         - *ngSwitchDefault
                    - ngFor
-                           - It renders list of elements
-                           - *ngFor
-                           - some of the keywords are:
-                           first as f
-                           last as l
-                           odd as o
-                           even as e
+                         - It renders list of elements
+                         - *ngFor
+                         - some of the keywords are:
+                         first as f
+                         last as l
+                         odd as o
+                         even as e
+                   - *ngIf [ngIf]
+                          - Used for adding or removing html elements based on condition
+                   - You cant use more than one structural directive on one element
+           2. Attribute directives
+                  [ngClass]
+                  [ngStyle]
+
+          3. Building custom directive
+                    1. Building basic directive
+                    2. Building better attribute directive with renderer
+                    3. Using HostListener to listen to Host events
+                    4. Using Host binding to bind host properties
+                    5. Binding to directive properties
+
+
 
  15. Pipes
         - {{ value | pipe }}
